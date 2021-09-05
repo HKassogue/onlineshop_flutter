@@ -17,7 +17,10 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             Expanded(
               flex: 3,
-              child: SplashContent()
+              child: SplashContent(
+                text: 'Bienvenu à Mali sugu, le shoping en toute simplicité !',
+                image: 'assets/images/splash_1.png'
+              )
             ),
             Expanded(
               flex: 2,
@@ -33,7 +36,11 @@ class _BodyState extends State<Body> {
 class SplashContent extends StatelessWidget {
   const SplashContent({
     Key? key,
+    required this.text,
+    required this.image
   }) : super(key: key);
+
+  final String text, image;
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +56,11 @@ class SplashContent extends StatelessWidget {
           )
         ),
         Text(
-          'Bienvenu à Mali sugu, le shoping en toute simplicité !',
+          text,
         ),
         Spacer(flex: 2,),
         Image.asset(
-          'assets/images/splash_1.png',
+          image,
           height: getProportionateScreenHeight(265),
           width: getProportionateScreenWidth(235),
         )
