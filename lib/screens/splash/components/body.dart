@@ -17,28 +17,7 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             Expanded(
               flex: 3,
-              child: Column(
-                children: <Widget>[
-                  Spacer(),
-                  Text(
-                    'Mali sugu',
-                    style: TextStyle(
-                        fontSize: getProportionateScreenWidth(36),
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.bold
-                    )
-                  ),
-                  Text(
-                    'Bienvenu à Mali sugu, le shoping en toute simplicité !',
-                  ),
-                  Spacer(flex: 2,),
-                  Image.asset(
-                    'assets/images/splash_1.png',
-                    height: getProportionateScreenHeight(265),
-                    width: getProportionateScreenWidth(235),
-                  )
-                ],
-              )
+              child: SplashContent()
             ),
             Expanded(
               flex: 2,
@@ -47,6 +26,38 @@ class _BodyState extends State<Body> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class SplashContent extends StatelessWidget {
+  const SplashContent({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Spacer(),
+        Text(
+          'Mali sugu',
+          style: TextStyle(
+              fontSize: getProportionateScreenWidth(36),
+            color: kPrimaryColor,
+            fontWeight: FontWeight.bold
+          )
+        ),
+        Text(
+          'Bienvenu à Mali sugu, le shoping en toute simplicité !',
+        ),
+        Spacer(flex: 2,),
+        Image.asset(
+          'assets/images/splash_1.png',
+          height: getProportionateScreenHeight(265),
+          width: getProportionateScreenWidth(235),
+        )
+      ],
     );
   }
 }
