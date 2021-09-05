@@ -47,7 +47,12 @@ class _BodyState extends State<Body> {
               flex: 2,
               child: Column(
                 children: <Widget>[
-                  buildDot()
+                  Row(
+                    children: List.generate(
+                        splashData.length,
+                        (index) => buildDot()
+                    ),
+                  )
                 ],
               )
             )
