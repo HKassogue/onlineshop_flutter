@@ -4,6 +4,8 @@ import 'package:onlineshop_flutter/size_config.dart';
 
 // This is the best practicec
 import '../components/splash_content.dart';
+import '../../../components/default_button.dart';
+
 
 class Body extends StatefulWidget {
   @override
@@ -67,23 +69,9 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                     Spacer(flex: 3),
-                    SizedBox(
-                      width: double.infinity,
-                      height: getProportionateScreenHeight(56),
-                      child: FlatButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        color: kPrimaryColor,
-                          onPressed: (){},
-                          child: Text(
-                            'Continuer',
-                            style: TextStyle(
-                                fontSize: getProportionateScreenWidth(18),
-                                color: Colors.white
-                            ),
-                          )
-                      ),
+                    DefaultButton(
+                      text: 'Continuer',
+                      press: (){},
                     ),
                     Spacer()
                   ],
