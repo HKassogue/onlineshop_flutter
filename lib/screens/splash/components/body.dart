@@ -10,7 +10,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  final List<Map<String, String>> splashData = [
+  int currentePage = 0;
+  List<Map<String, String>> splashData = [
     {
       "text": "Bienvenu à Mali sugu, le shoping en toute simplicité !",
       "image": "assets/images/splash_1.png"
@@ -36,6 +37,11 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 3,
               child: PageView.builder(
+                onPageChanged: (value){
+                  setState(() {
+                    currentePage = value;
+                  });
+                },
                 itemCount: splashData.length,
                 itemBuilder: (context, index) => SplashContent(
                   text: splashData[index]["text"],
@@ -48,9 +54,10 @@ class _BodyState extends State<Body> {
               child: Column(
                 children: <Widget>[
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
                         splashData.length,
-                        (index) => buildDot()
+                        (index) => buildDot(index: index)
                     ),
                   )
                 ],
@@ -62,15 +69,16 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Container buildDot() {
-    return Container(
-                  margin: EdgeInsets.only(right: 5),
-                  height: 6,
-                  width: 6,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(3)
-                  ),
-                );
+  AnimatedContainer buildDot({int? index}) {
+    return AnimatedContainer(
+      duration: kAnimationDuration,
+      margin: EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentePage == index ? 20 : 6,
+      decoration: BoxDecoration(
+        color: currentePage == index ? kPrimaryColor : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3)
+      ),
+    );
   }
 }
