@@ -52,28 +52,42 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                        splashData.length,
-                        (index) => buildDot(index: index)
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                          splashData.length,
+                          (index) => buildDot(index: index)
+                      ),
                     ),
-                  ),
-                  FlatButton(
-                    color: kPrimaryColor,
-                      onPressed: (){},
-                      child: Text(
-                        'Continuer',
-                        style: TextStyle(
-                            fontSize: getProportionateScreenWidth(18),
-                            color: Colors.white
+                    Spacer(flex: 3),
+                    SizedBox(
+                      width: double.infinity,
+                      height: getProportionateScreenHeight(56),
+                      child: FlatButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)
                         ),
-
-                      )
-                  )
-                ],
+                        color: kPrimaryColor,
+                          onPressed: (){},
+                          child: Text(
+                            'Continuer',
+                            style: TextStyle(
+                                fontSize: getProportionateScreenWidth(18),
+                                color: Colors.white
+                            ),
+                          )
+                      ),
+                    ),
+                    Spacer()
+                  ],
+                ),
               )
             )
           ],
