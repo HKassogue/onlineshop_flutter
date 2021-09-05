@@ -11,31 +11,34 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 3,
-            child: Column(
-              children: <Widget>[
-                Text(
-                  'Mali sugu',
-                  style: TextStyle(
-                      fontSize: getProportionateScreenWidth(36),
-                    color: kPrimaryColor,
-                    fontWeight: FontWeight.bold
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 3,
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    'Mali sugu',
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(36),
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.bold
+                    )
+                  ),
+                  Text(
+                    'Bienvenu à Mali sugu, le shoping en toute simplicité !',
                   )
-                ),
-                Text(
-                  'Bienvenu à Mali sugu, le shoping en toute simplicité !',
-                )
-              ],
+                ],
+              )
+            ),
+            Expanded(
+              flex: 2,
+              child: SizedBox()
             )
-          ),
-          Expanded(
-            flex: 2,
-            child: SizedBox()
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
