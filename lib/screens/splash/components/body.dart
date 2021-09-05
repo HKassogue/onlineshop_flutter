@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop_flutter/constantes.dart';
 
 // This is the best practicec
 import '../components/splash_content.dart';
@@ -44,7 +45,19 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: SizedBox()
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(right: 5),
+                    height: 6,
+                    width: 6,
+                    decoration: BoxDecoration(
+                      color: kPrimaryColor,
+                      borderRadius: BorderRadius.circular(3)
+                    ),
+                  )
+                ],
+              )
             )
           ],
         ),
