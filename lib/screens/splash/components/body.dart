@@ -17,9 +17,11 @@ class _BodyState extends State<Body> {
           children: <Widget>[
             Expanded(
               flex: 3,
-              child: SplashContent(
-                text: 'Bienvenu à Mali sugu, le shoping en toute simplicité !',
-                image: 'assets/images/splash_1.png'
+              child: PageView.builder(
+                itemBuilder: (context, index) => SplashContent(
+                  text: 'Bienvenu à Mali sugu, le shoping en toute simplicité !',
+                  image: 'assets/images/splash_1.png'
+                ),
               )
             ),
             Expanded(
