@@ -8,6 +8,22 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  final List<Map<String, String>> splashData = [
+    {
+      "text": "Bienvenu à Mali sugu, le shoping en toute simplicité !",
+      "image": "assets/images/splash_1.png"
+    },
+    {
+      "text":
+      "Aider à faire du shoping partout au Mali",
+      "image": "assets/images/splash_2.png"
+    },
+    {
+      "text": "Facile à faire votre shoping partout où vous êtes.\nConnectez-vous et découvrez les produits !",
+      "image": "assets/images/splash_3.png"
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,9 +34,10 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 3,
               child: PageView.builder(
+                itemCount: splashData.length,
                 itemBuilder: (context, index) => SplashContent(
-                  text: 'Bienvenu à Mali sugu, le shoping en toute simplicité !',
-                  image: 'assets/images/splash_1.png'
+                  text: splashData[index]["text"],
+                  image: splashData[index]["image"]
                 ),
               )
             ),
@@ -38,11 +55,11 @@ class _BodyState extends State<Body> {
 class SplashContent extends StatelessWidget {
   const SplashContent({
     Key? key,
-    required this.text,
-    required this.image
+    this.text,
+    this.image
   }) : super(key: key);
 
-  final String text, image;
+  final String? text, image;
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +75,12 @@ class SplashContent extends StatelessWidget {
           )
         ),
         Text(
-          text,
+          text!,
+          textAlign: TextAlign.center
         ),
         Spacer(flex: 2,),
         Image.asset(
-          image,
+          image!,
           height: getProportionateScreenHeight(265),
           width: getProportionateScreenWidth(235),
         )
