@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/constantes.dart';
+import 'package:onlineshop_flutter/size_config.dart';
 
 // This is the best practicec
 import '../components/splash_content.dart';
@@ -59,6 +60,18 @@ class _BodyState extends State<Body> {
                         splashData.length,
                         (index) => buildDot(index: index)
                     ),
+                  ),
+                  FlatButton(
+                    color: kPrimaryColor,
+                      onPressed: (){},
+                      child: Text(
+                        'Continuer',
+                        style: TextStyle(
+                            fontSize: getProportionateScreenWidth(18),
+                            color: Colors.white
+                        ),
+
+                      )
                   )
                 ],
               )
