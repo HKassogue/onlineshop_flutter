@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:onlineshop_flutter/constantes.dart';
-import 'package:onlineshop_flutter/size_config.dart';
+
+// This is the best practicec
+import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -48,43 +49,6 @@ class _BodyState extends State<Body> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class SplashContent extends StatelessWidget {
-  const SplashContent({
-    Key? key,
-    this.text,
-    this.image
-  }) : super(key: key);
-
-  final String? text, image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Spacer(),
-        Text(
-          'Mali sugu',
-          style: TextStyle(
-              fontSize: getProportionateScreenWidth(36),
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold
-          )
-        ),
-        Text(
-          text!,
-          textAlign: TextAlign.center
-        ),
-        Spacer(flex: 2,),
-        Image.asset(
-          image!,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
-        )
-      ],
     );
   }
 }
