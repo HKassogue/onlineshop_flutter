@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/constantes.dart';
+import 'package:onlineshop_flutter/screens/sign_in/sign_in_screen.dart';
 import 'package:onlineshop_flutter/size_config.dart';
 
 // This is the best practicec
@@ -71,7 +72,9 @@ class _BodyState extends State<Body> {
                     Spacer(flex: 3),
                     DefaultButton(
                       text: 'Continuer',
-                      press: (){},
+                      press: (){
+                        Navigator.pushNamed(context, SignInScreen.routeName);
+                      },
                     ),
                     Spacer()
                   ],
