@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:onlineshop_flutter/constantes.dart';
 
 import '../../../size_config.dart';
 
@@ -52,20 +51,6 @@ class _SignFormState extends State<SignForm> {
               labelText: "Email",
               hintText: "Entrez votre adresse email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 42,
-                vertical: 20
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: kTextColor),
-                gapPadding: 10
-              ),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(28),
-                  borderSide: BorderSide(color: kTextColor),
-                  gapPadding: 10
-              )
             ),
           )
         ],
