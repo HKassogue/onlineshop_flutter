@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop_flutter/components/costum_suffix_icon.dart';
 
 import '../../../size_config.dart';
 
@@ -51,6 +52,7 @@ class _SignFormState extends State<SignForm> {
               labelText: "Email",
               hintText: "Entrez votre adresse email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg",)
             ),
           )
         ],
