@@ -76,6 +76,31 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
           obscureText: true,
+          onSaved: (value) => password = value,
+          onChanged: (value) {
+            if(value.isNotEmpty && errors.contains(kPassNullError)) {
+              setState(() {
+                errors.remove(kPassNullError);
+              });
+            } else if(value.length>=8 && errors.contains(kShortPassError)) {
+              setState(() {
+                errors.remove(kShortPassError);
+              });
+            }
+            return null;
+          },
+          validator: (value) {
+            if(value!.isEmpty && !errors.contains(kPassNullError)) {
+              setState(() {
+                errors.add(kPassNullError);
+              });
+            } else if(value.isNotEmpty && value.length<8 && !errors.contains(kShortPassError)) {
+              setState(() {
+                errors.add(kShortPassError);
+              });
+            }
+            return null;
+          },
           decoration: InputDecoration(
               labelText: "Password",
               hintText: "Entrez votre mot de passe",
