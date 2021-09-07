@@ -3,6 +3,7 @@ import 'package:onlineshop_flutter/components/costum_suffix_icon.dart';
 import 'package:onlineshop_flutter/components/default_button.dart';
 import 'package:onlineshop_flutter/components/form_error.dart';
 import 'package:onlineshop_flutter/constantes.dart';
+import 'package:onlineshop_flutter/screens/forgot_password/forgot_password_screen.dart';
 
 import '../../../size_config.dart';
 
@@ -42,9 +43,14 @@ class _SignFormState extends State<SignForm> {
                 ),
                 Text("Se souvenir de moi"),
                 Spacer(),
-                Text(
-                  "Mot de passe oublié",
-                  style: TextStyle(decoration: TextDecoration.underline),
+                GestureDetector(
+                  onTap: () => Navigator.pushNamed(
+                      context, ForgotPasswordScreen.routeName
+                  ),
+                  child: Text(
+                    "Mot de passe oublié",
+                    style: TextStyle(decoration: TextDecoration.underline),
+                  ),
                 )
               ],
             ),
