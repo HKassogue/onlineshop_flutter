@@ -29,7 +29,14 @@ class Body extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SignForm(),
-              SocialCard(icon: "assets/icons/facebook-2.svg", press: (){})
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialCard(icon: "assets/icons/google-icon.svg", press: (){}),
+                  SocialCard(icon: "assets/icons/facebook-2.svg", press: (){}),
+                  SocialCard(icon: "assets/icons/twitter.svg", press: (){})
+                ],
+              ),
             ],
           ),
         )
