@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/body.dart';
+
 class ForgotPasswordScreen extends StatelessWidget {
   static String routeName = "/forgot_password";
   @override
@@ -8,7 +10,7 @@ class ForgotPasswordScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Mot de passe oublié'),
       ),
-      body: Container(),
+      body: Body(),
     );
   }
 }
