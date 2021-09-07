@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/components/costum_suffix_icon.dart';
 import 'package:onlineshop_flutter/components/default_button.dart';
 import 'package:onlineshop_flutter/components/form_error.dart';
+import 'package:onlineshop_flutter/constantes.dart';
 
 import '../../../size_config.dart';
 
@@ -45,7 +46,9 @@ class SignForm extends StatefulWidget {
 
 class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
-  final List<String> errors = ["Demo error"];
+  String? email;
+  String? password;
+  final List<String> errors = [];
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -85,10 +88,29 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
           keyboardType: TextInputType.emailAddress,
-          validator: (value){
-            if(value!.isEmpty) {
+          onSaved: (value) => email = value,
+          onChanged: (value) {
+            if(value.isNotEmpty && errors.contains(kEmailNullError)) {
               setState(() {
-                errors.add("Veuillez entrer votre adresse email");
+                errors.remove(kEmailNullError);
+              });
+            } else if(emailValidatorRegExp.hasMatch(value) &&
+                errors.contains(kInvalidEmailError)) {
+              setState(() {
+                errors.remove(kInvalidEmailError);
+              });
+            }
+            return null;
+          },
+          validator: (value){
+            if(value!.isEmpty && !errors.contains(kEmailNullError)) {
+              setState(() {
+                errors.add(kEmailNullError);
+              });
+            } else if(value.isNotEmpty && !emailValidatorRegExp.hasMatch(value) &&
+                !errors.contains(kInvalidEmailError)) {
+              setState(() {
+                errors.add(kInvalidEmailError);
               });
             }
             return null;
