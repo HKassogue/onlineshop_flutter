@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop_flutter/size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -12,6 +13,13 @@ const kTextColor = Color(0xFF757575);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
+final headingStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
+
 // Form Error
 final RegExp emailValidatorRegExp =
 RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
@@ -21,6 +29,6 @@ const String kPassNullError = "Veuillez entrer un mot de passe";
 const String kShortPassError = "Votre mot de passe est trop court";
 const String kMatchPassError = "Mots de passe incorrects";
 const String kNamelNullError = "Veuillez entrer votre nom";
-const String kPhoneNumberNullError = "Please Enter your phone number";
-const String kAddressNullError = "Please Enter your address";
+const String kPhoneNumberNullError = "Veuillez entrer votre numéro de téléphone";
+const String kAddressNullError = "Veuillez entrer votre adresse";
 

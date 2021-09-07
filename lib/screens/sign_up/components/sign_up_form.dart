@@ -3,6 +3,7 @@ import 'package:onlineshop_flutter/components/costum_suffix_icon.dart';
 import 'package:onlineshop_flutter/components/default_button.dart';
 import 'package:onlineshop_flutter/components/form_error.dart';
 import 'package:onlineshop_flutter/constantes.dart';
+import 'package:onlineshop_flutter/screens/complete_profile/complete_profile_screen.dart';
 
 import '../../../size_config.dart';
 
@@ -52,8 +53,8 @@ class _SignUpFormState extends State<SignUpForm> {
                 press: (){
                   if(_formKey.currentState!.validate()){
                     _formKey.currentState!.save();
-                    // If all are valid then go to success screen
-                    //Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                    // if all are valid then go to success screen
+                    Navigator.pushNamed(context, CompleteProfileScreen.routeName);
                   }
                 }
             )
