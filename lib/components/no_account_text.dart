@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop_flutter/screens/sign_up/sign_up_screen.dart';
 
 import '../constantes.dart';
 import '../size_config.dart';
@@ -19,7 +20,7 @@ class NoAccountText extends StatelessWidget {
         ),
         Spacer(),
         GestureDetector(
-          onTap: (){},
+          onTap: () => Navigator.pushNamed(context, SignUpScreen.routeName),
           child: Text(
             "Créez-en",
             style: TextStyle(
