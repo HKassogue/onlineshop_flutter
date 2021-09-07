@@ -47,16 +47,35 @@ class _SignFormState extends State<SignForm> {
     return Form(
       child: Column(
         children: [
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: "Email",
-              hintText: "Entrez votre adresse email",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg",)
-            ),
-          )
+          buildEmailFormField(),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          buildPasswordFormField()
         ],
       )
     );
+  }
+
+  TextFormField buildPasswordFormField() {
+    return TextFormField(
+          obscureText: true,
+          decoration: InputDecoration(
+              labelText: "Password",
+              hintText: "Entrez votre mot de passe",
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg",)
+          ),
+        );
+  }
+
+  TextFormField buildEmailFormField() {
+    return TextFormField(
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            labelText: "Email",
+            hintText: "Entrez votre adresse email",
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg",)
+          ),
+        );
   }
 }
