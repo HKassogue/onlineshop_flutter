@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop_flutter/components/no_account_text.dart';
 import 'package:onlineshop_flutter/components/social_card.dart';
-import 'package:onlineshop_flutter/constantes.dart';
 import 'package:onlineshop_flutter/screens/sign_in/components/sign_form.dart';
 
 import '../../../size_config.dart';
@@ -43,24 +43,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Vous n'avez pas un compte ?",
-                      style: TextStyle(fontSize: getProportionateScreenWidth(16)),
-                    ),
-                    Spacer(),
-                    Text(
-                      "Créez-en",
-                      style: TextStyle(
-                        fontSize: getProportionateScreenWidth(16),
-                        decoration: TextDecoration.underline,
-                        color: kPrimaryColor
-                      ),
-                    )
-                  ],
-                )
+                NoAccountText()
               ],
             ),
           ),
@@ -69,3 +52,4 @@ class Body extends StatelessWidget {
     );
   }
 }
+
