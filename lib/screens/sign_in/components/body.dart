@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/components/costum_suffix_icon.dart';
+import 'package:onlineshop_flutter/components/default_button.dart';
+import 'package:onlineshop_flutter/components/form_error.dart';
 
 import '../../../size_config.dart';
 
@@ -42,14 +44,27 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  final _formKey = GlobalKey<FormState>();
+  final List<String> errors = ["Demo error"];
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
           buildEmailFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
-          buildPasswordFormField()
+          buildPasswordFormField(),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          FormError(errors: errors),
+          DefaultButton(
+            text: "Continuer",
+            press: (){
+              if(_formKey.currentState!.validate()){
+                _formKey.currentState!.save();
+              }
+            }
+          )
         ],
       )
     );
@@ -70,6 +85,14 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
           keyboardType: TextInputType.emailAddress,
+          validator: (value){
+            if(value!.isEmpty) {
+              setState(() {
+                errors.add("Veuillez entrer votre adresse email");
+              });
+            }
+            return null;
+          },
           decoration: InputDecoration(
             labelText: "Email",
             hintText: "Entrez votre adresse email",
