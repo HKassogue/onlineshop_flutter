@@ -48,6 +48,7 @@ class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
+  bool remember = false;
   final List<String> errors = [];
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,26 @@ class _SignFormState extends State<SignForm> {
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
           FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          Row(
+            children: [
+              Checkbox(
+                value: remember,
+                onChanged: (value){
+                  setState(() {
+                    remember = value!;
+                  });
+                },
+                activeColor: kPrimaryColor,
+              ),
+              Text("Se souvenir de moi"),
+              Spacer(),
+              Text(
+                "Mot de passe oublié",
+                style: TextStyle(decoration: TextDecoration.underline),
+              )
+            ],
+          ),
           DefaultButton(
             text: "Continuer",
             press: (){
