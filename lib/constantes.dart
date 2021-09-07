@@ -20,3 +20,7 @@ const String kInvalidEmailError = "Veuillez entrer une adresse email valide";
 const String kPassNullError = "Veuillez entrer un mot de passe";
 const String kShortPassError = "Votre mot de passe est trop court";
 const String kMatchPassError = "Mots de passe incorrects";
+const String kNamelNullError = "Veuillez entrer votre nom";
+const String kPhoneNumberNullError = "Please Enter your phone number";
+const String kAddressNullError = "Please Enter your address";
+

@@ -13,11 +13,26 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String? firstName;
-  String? lastName;
-  String? phone;
   String? email;
-  final List<String> errors = [];
+  String? password;
+  String? conform_password;
+  bool remember = false;
+  final List<String?> errors = [];
+
+  void addError({String? error}) {
+    if (!errors.contains(error))
+      setState(() {
+        errors.add(error);
+      });
+  }
+
+  void removeError({String? error}) {
+    if (errors.contains(error))
+      setState(() {
+        errors.remove(error);
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -25,10 +40,13 @@ class _SignUpFormState extends State<SignUpForm> {
         child: Column(
           children: [
             buildEmailFormField(),
-            SizedBox(height: getProportionateScreenHeight(20)),
-            SizedBox(height: getProportionateScreenHeight(20)),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            buildPasswordFormField(),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            buildConformPassFormField(),
+            SizedBox(height: getProportionateScreenHeight(30)),
             FormError(errors: errors),
-            SizedBox(height: getProportionateScreenHeight(10)),
+            SizedBox(height: getProportionateScreenHeight(30)),
             DefaultButton(
                 text: "Continuer",
                 press: (){
@@ -44,6 +62,68 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
+  TextFormField buildConformPassFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) => conform_password = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (value.isNotEmpty && password == conform_password) {
+          removeError(error: kMatchPassError);
+        }
+        conform_password = value;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: kPassNullError);
+          return "";
+        } else if ((password != value)) {
+          addError(error: kMatchPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Confirmation du mot de passe",
+        hintText: "Retappez votre mot de passe",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildPasswordFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) => password = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (value.length >= 8) {
+          removeError(error: kShortPassError);
+        }
+        password = value;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: kPassNullError);
+          return "";
+        } else if (value.length < 8) {
+          addError(error: kShortPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Mot de passe",
+        hintText: "Entrez votre mot de passe",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
+      ),
+    );
+  }
+
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -51,12 +131,12 @@ class _SignUpFormState extends State<SignUpForm> {
       onChanged: (value) {
         if(value.isNotEmpty && errors.contains(kEmailNullError)) {
           setState(() {
-            errors.remove(kEmailNullError);
+            removeError(error: kEmailNullError);
           });
         } else if(emailValidatorRegExp.hasMatch(value) &&
             errors.contains(kInvalidEmailError)) {
           setState(() {
-            errors.remove(kInvalidEmailError);
+            removeError(error: kInvalidEmailError);
           });
         }
         return null;
@@ -64,13 +144,13 @@ class _SignUpFormState extends State<SignUpForm> {
       validator: (value){
         if(value!.isEmpty && !errors.contains(kEmailNullError)) {
           setState(() {
-            errors.add(kEmailNullError);
+            addError(error: kEmailNullError);
           });
           return "";
         } else if(value.isNotEmpty && !emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
           setState(() {
-            errors.add(kInvalidEmailError);
+            addError(error: kInvalidEmailError);
           });
           return "";
         }
