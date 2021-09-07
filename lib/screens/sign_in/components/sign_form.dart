@@ -28,7 +28,7 @@ class _SignFormState extends State<SignForm> {
             buildPasswordFormField(),
             SizedBox(height: getProportionateScreenHeight(20)),
             FormError(errors: errors),
-            SizedBox(height: getProportionateScreenHeight(20)),
+            SizedBox(height: getProportionateScreenHeight(10)),
             Row(
               children: [
                 Checkbox(
@@ -48,6 +48,7 @@ class _SignFormState extends State<SignForm> {
                 )
               ],
             ),
+            SizedBox(height: getProportionateScreenHeight(10)),
             DefaultButton(
                 text: "Continuer",
                 press: (){

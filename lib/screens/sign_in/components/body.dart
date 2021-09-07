@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:onlineshop_flutter/components/social_card.dart';
+import 'package:onlineshop_flutter/constantes.dart';
 import 'package:onlineshop_flutter/screens/sign_in/components/sign_form.dart';
 
 import '../../../size_config.dart';
@@ -14,63 +15,57 @@ class Body extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: getProportionateScreenWidth(20)
           ),
-          child: Column(
-            children: [
-              Text(
-                "Bon retour",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: getProportionateScreenWidth(28),
-                  fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: SizeConfig.screenHeight * 0.02),
+                Text(
+                  "Bon retour",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: getProportionateScreenWidth(28),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                "Connectez vous avec votre email\nou continuez avec un réseau social",
-                textAlign: TextAlign.center,
-              ),
-              SignForm(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SocialCard(icon: "assets/icons/google-icon.svg", press: (){}),
-                  SocialCard(icon: "assets/icons/facebook-2.svg", press: (){}),
-                  SocialCard(icon: "assets/icons/twitter.svg", press: (){})
-                ],
-              ),
-            ],
+                Text(
+                  "Connectez vous avec votre email\nou continuez avec un réseau social",
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.06),
+                SignForm(),
+                SizedBox(height: SizeConfig.screenHeight * 0.06),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SocialCard(icon: "assets/icons/google-icon.svg", press: (){}),
+                    SocialCard(icon: "assets/icons/facebook-2.svg", press: (){}),
+                    SocialCard(icon: "assets/icons/twitter.svg", press: (){})
+                  ],
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.08),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Vous n'avez pas un compte ?",
+                      style: TextStyle(fontSize: getProportionateScreenWidth(16)),
+                    ),
+                    Spacer(),
+                    Text(
+                      "Créez-en",
+                      style: TextStyle(
+                        fontSize: getProportionateScreenWidth(16),
+                        decoration: TextDecoration.underline,
+                        color: kPrimaryColor
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         )
       ),
     );
   }
 }
-
-class SocialCard extends StatelessWidget {
-  const SocialCard({
-    Key? key,
-    required this.icon,
-    required this.press,
-  }) : super(key: key);
-
-  final String icon;
-  final Function() press;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
-        padding: EdgeInsets.all(getProportionateScreenWidth(8)),
-        height: getProportionateScreenHeight(40),
-        width: getProportionateScreenWidth(40),
-        decoration: BoxDecoration(
-          color: Color(0xFFF5F6F9),
-          shape: BoxShape.circle
-        ),
-        child: SvgPicture.asset(icon),
-      ),
-    );
-  }
-}
-
