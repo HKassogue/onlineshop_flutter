@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/components/costum_suffix_icon.dart';
 import 'package:onlineshop_flutter/components/default_button.dart';
 import 'package:onlineshop_flutter/components/form_error.dart';
+import 'package:onlineshop_flutter/screens/otp/otp_screen.dart';
 
 import '../../../constantes.dart';
 import '../../../size_config.dart';
@@ -53,8 +54,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             text: "Continuer",
             press: () {
               if (_formKey.currentState!.validate()) {
-                // Save of the data if all are ok
-                // open of otp screen
+                //Save of data if all are ok
+                //Sent of OTP code and go to OTP screen
+                Navigator.pushNamed(context, OtpScreen.routeName);
               }
             },
           ),
