@@ -12,7 +12,7 @@ class DiscountBanner extends StatelessWidget {
     return Container(
       // height: 90,
       width: double.infinity,
-      margin: EdgeInsets.all(getProportionateScreenWidth(20)),
+      margin: EdgeInsets.symmetric(horizontal:getProportionateScreenWidth(20)),
       padding: EdgeInsets.symmetric(
         horizontal: getProportionateScreenWidth(20),
         vertical: getProportionateScreenWidth(15),
