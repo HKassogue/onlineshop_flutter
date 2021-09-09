@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/components/default_button.dart';
+import 'package:onlineshop_flutter/screens/home/home_screen.dart';
 
 import '../../../size_config.dart';
 
@@ -30,7 +31,7 @@ class Body extends StatelessWidget {
             child: DefaultButton(
               text: "Retour à l'accueil",
               press: () {
-                //Navigator.pushNamed(context, HomeScreen.routeName);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
           ),
