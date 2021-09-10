@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onlineshop_flutter/screens/home/components/special_offers_title.dart';
+import 'package:onlineshop_flutter/screens/home/components/section_title.dart';
 
 import '../../../size_config.dart';
 
@@ -12,11 +12,11 @@ class SpecialOffers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SpecialOffersTitle(
-            title: "Spécialement pour vous",
+        SectionTitle(
+            title: "Articles pour vous",
             press: (){}
           ),
-        SizedBox(height: getProportionateScreenWidth(10)),
+        SizedBox(height: getProportionateScreenWidth(5)),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
