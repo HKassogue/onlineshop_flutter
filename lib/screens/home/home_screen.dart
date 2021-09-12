@@ -7,11 +7,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: SizedBox(),
-        title: Text("Accueil"),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   leading: SizedBox(),
+      //   title: Text("Accueil"),
+      //   centerTitle: true,
+      // ),
       body: Body(),
     );
   }
