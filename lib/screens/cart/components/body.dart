@@ -4,7 +4,12 @@ import 'package:onlineshop_flutter/models/Cart.dart';
 import 'package:onlineshop_flutter/screens/cart/components/cart_card.dart';
 import 'package:onlineshop_flutter/size_config.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,6 +34,11 @@ class Body extends StatelessWidget {
                     ],
                   ),
                 ),
+                onDismissed: (direction) {
+                  setState(() {
+                    demoCarts.removeAt(index);
+                  });
+                },
                 child: CartCard(cart: demoCarts[index])
             ),
           )
