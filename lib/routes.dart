@@ -6,6 +6,7 @@ import 'package:onlineshop_flutter/screens/forgot_password/forgot_password_scree
 import 'package:onlineshop_flutter/screens/home/home_screen.dart';
 import 'package:onlineshop_flutter/screens/login_success/login_success_screen.dart';
 import 'package:onlineshop_flutter/screens/otp/otp_screen.dart';
+import 'package:onlineshop_flutter/screens/profile/profile_screen.dart';
 import 'package:onlineshop_flutter/screens/sign_in/sign_in_screen.dart';
 import 'package:onlineshop_flutter/screens/sign_up/sign_up_screen.dart';
 import 'package:onlineshop_flutter/screens/splash/splash_screen.dart';
@@ -23,4 +24,5 @@ final Map<String, WidgetBuilder> routes = {
   HomeScreen.routeName: (context) => HomeScreen(),
   DetailsScreen.routeName: (context) => DetailsScreen(),
   CartScreen.routeName: (context) => CartScreen(),
+  ProfileScreen.routeName: (context) => ProfileScreen(),
 };
