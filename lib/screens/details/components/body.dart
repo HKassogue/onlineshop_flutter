@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop_flutter/components/default_button.dart';
 import 'package:onlineshop_flutter/models/Product.dart';
 import 'package:onlineshop_flutter/screens/details/components/color_dots.dart';
 import 'package:onlineshop_flutter/screens/details/components/product_description.dart';
 import 'package:onlineshop_flutter/screens/details/components/product_images.dart';
 import 'package:onlineshop_flutter/screens/details/components/top_rounded_container.dart';
+
+import '../../../size_config.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -26,8 +29,25 @@ class Body extends StatelessWidget {
                 ),
                 TopRoundedContainer(
                     color: Color(0xFFF6F7F9),
-                    child: ColorDots(product: product)
-                )
+                    child: Column(
+                        children: [
+                          ColorDots(product: product),
+                          SizedBox(height: getProportionateScreenHeight(20)),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: SizeConfig.screenWidth * 0.15,
+                              right: SizeConfig.screenWidth * 0.15,
+                              bottom: getProportionateScreenWidth(40),
+                              top: getProportionateScreenWidth(15),
+                            ),
+                            child: DefaultButton(
+                              text: "Ajouter au panier",
+                              press: () {},
+                            ),
+                          )
+                        ]
+                    )
+                ),
               ]
             )
         ),
