@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/models/Product.dart';
+import 'package:onlineshop_flutter/screens/details/components/product_description.dart';
 import 'package:onlineshop_flutter/screens/details/components/product_images.dart';
+import 'package:onlineshop_flutter/screens/details/components/top_rounded_container.dart';
 
 import '../../../size_config.dart';
 
@@ -14,7 +16,14 @@ class Body extends StatelessWidget {
     return ListView(
       children: [
         SizedBox(height: getProportionateScreenHeight(20)),
-        ProductImages(product: product)
+        ProductImages(product: product),
+        TopRoundedContainer(
+            color: Colors.white,
+            child: ProductDescription(
+              product: product,
+              pressOnSeeMore: (){},
+            )
+        )
       ]
     );
   }
