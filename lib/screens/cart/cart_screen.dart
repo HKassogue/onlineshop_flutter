@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop_flutter/models/Cart.dart';
+import 'package:onlineshop_flutter/screens/cart/components/check_out_card.dart';
 
 import 'components/body.dart';
 
@@ -10,6 +11,7 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
+      bottomNavigationBar: CheckoutCard(),
     );
   }
 
