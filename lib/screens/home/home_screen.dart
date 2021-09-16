@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop_flutter/components/coustom_bottom_nav_bar.dart';
 
+import '../../constantes.dart';
 import 'components/body.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,6 +15,7 @@ class HomeScreen extends StatelessWidget {
       //   centerTitle: true,
       // ),
       body: Body(),
+      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
     );
   }
 }

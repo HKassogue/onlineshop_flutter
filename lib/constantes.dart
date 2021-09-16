@@ -46,3 +46,6 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: BorderSide(color: kTextColor),
   );
 }
+
+enum MenuState { home, favourite, message, profile }
+
